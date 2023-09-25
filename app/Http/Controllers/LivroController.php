@@ -15,6 +15,8 @@ class LivroController extends Controller
             $livros = Livro::all();
 
             return response()->json($livros);
+
+            
         }
    
         public function listarLivrosPorAutor($autorId)
@@ -23,6 +25,23 @@ class LivroController extends Controller
     
             return response()->json($livros);
         }
+
+        public function listarLivrosPorTitulo($titulo)
+        {
+            $livros = Livro::where('titulo','like' ,$titulo)->get();
+    
+            return response()->json($livros);
+        }
+
+        public function listarLivrosPorTituloEAutor($titulo,$autorId)
+        {
+            $livros = Livro::with('autor')->where('autor_id',$autorId)->where('titulo,' , 'like' , $titulo)->get();
+    
+            return response()->json($livros);
+        }
+
+
+
 
        
 

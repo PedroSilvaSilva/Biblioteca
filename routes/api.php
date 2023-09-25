@@ -23,3 +23,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/livros', [LivroController::class, 'listarLivros']);
 Route::get('/livros/autor/{autorId}', [LivroController::class, 'listarLivrosPorAutor']);
+Route::get('/livros/titulo/{titulo}', [LivroController::class, 'listarLivrosPorTitulo']);
+Route::get('/livros/autor-titulo/{titulo}/{autorId}', [LivroController::class, 'listarLivrosPorTitulo']);
